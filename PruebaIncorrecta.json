@@ -1,0 +1,50 @@
+{ "equipos": [
+    {
+    "nombre_equipo": 12,
+    "identidad_equipo": "https://i.scdn.co/image/ab67616d00001e025df2dc83903aef6d0c2463cb",
+    "link": "https://open.spotify.com/intl-es/artist/2vDXLZ9mI3CdTPPIzFUKlY",
+    "asignatura": "SSL",
+    "carrera": "ISI",
+    "universidad_regional": "UTN FRRE",
+    "dirección": {
+    "calle": "French",
+    "ciudad": "Resistencia",
+    "país": "Argentina"
+},
+
+"alianza_equipo": "Aca va la alianza",
+
+"integrantes": [
+{
+"nombre": "Andrea",
+"edad": "37",
+"cargo": "Programadora",
+"foto": "https://www.infobae.com/resizer/v2/GVC5ES4ZVJGAJEUU5ZTTEU76SU.jpg?auth=6703f0ac9b099683572ab24543367830d80c549578ad59ade024894c272fa976&smart=true&width=1200&height=1200&quality=85",
+"email": "andreap@gmail.com",
+"habilidades": "Cocina",
+"salario": "jaja",
+"activo": true
+} ],
+"proyectos": [
+{
+"nombre": "Robot De Autococina",
+"estado": "Pending",
+"resumen": "Un robot que cocina",
+"tareas": [
+{
+"nombre": "Cocinar",
+"estado": "In Progress",
+"resumen": "Cocina",
+"fecha_inicio": "2024-06-02",
+"fecha_fin": "2024-07-02"
+} ],
+"fecha_inicio": "2024-06-01",
+"fecha_fin": "2024-07-03",
+"video": "https://www.youtube.com/",
+"conclusion": "En efecto, sirve para cocinar"
+} ]
+}
+],
+"version": "1.0",
+"firma_digital": "Andrea-Cocina"
+}
