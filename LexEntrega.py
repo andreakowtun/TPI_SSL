@@ -2,6 +2,7 @@ from ply import lex
 #import json
 #import re
 
+#Lista de tokens (simbolos no terminales)
 tokens = (
     'A_STRING',
     'LISTA_EQUIPOS',
@@ -40,7 +41,7 @@ tokens = (
     'VIDEO',
 )
 
-# Regular expression rules for simple tokens // Expresiones Regulares
+# Expreciones regulares para tokens simples
 """t_PLUS    = r'\+'
 t_MINUS   = r'-'
 t_TIMES   = r'\*'
@@ -48,10 +49,7 @@ t_DIVIDE  = r'/'
 t_LPAREN  = r'\('
 t_RPAREN  = r'\)'"""
 
-# NUMBER indica que esta regla busca identificar tokens que representen números.
-# \d+ significa "uno o más dígitos" (0-9).
-#Esto permite identificar números enteros como 123, 42, etc.
-#Se convierte en un entero (int) antes de devolver el token.
+#Funciones para convertir simbolos no terminales en terminales
 
 def t_LISTA_EQUIPOS(t):
     r'EQUIPO(\s*,\s*EQUIPO)*'
@@ -187,7 +185,7 @@ def t_VIDEO(t):
 
 
 #################################
-# Build the lexer
+# Construccion del lexer
 lexer = lex.lex()
 
 
@@ -200,23 +198,18 @@ def t_NUMBER(t):
     r'\d+'
     return t
 
-# Define a rule so we can track line numbers
+# Define una regla para que podamos rastrear los números de línea
 def t_newline(t):
     r'\n+'
     t.lexer.lineno += len(t.value)
 
-# A string containing ignored characters (spaces and tabs)
+# string que contiene los caracteres ignorados (espacios y tabulaciones)
 t_ignore  = ' \t'
 
-# Error handling rule
+# manejo de error
 def t_error(t):
     print("Illegal character '%s'" % t.value[0])
     t.lexer.skip(1)
-
-
-
-#To use the lexer, you first need to feed it some input text using its input() method. 
-# After that, repeated calls to token() produce tokens. The following code shows how this works:
 
 
 # Cargar JSON manualmente como una cadena
@@ -233,13 +226,13 @@ def cargar_json(ruta):
 json_texto = cargar_json("C:\\Users\\andre\\Desktop\\TPI_SSL\\PruebaCorrecta.json")
 lexer.input(json_texto)
 
-#Lexers also support the iteration protocol. So, you can write the above loop as follows:
-
 #for tok in lexer:
 #    print(tok)
-#The tokens returned by lexer.token() are instances of LexToken. This object has attributes tok.type, tok.value, tok.lineno, and tok.lexpos. The following code shows an example of accessing these attributes:
 
-# Tokenize
+#Los tokens devueltos por lexer.token() son instancias de LexToken. 
+# Este objeto tiene los atributos tok.type, tok.value, tok.lineno y tok.lexpos. 
+# El siguiente código muestra un ejemplo de acceso a estos atributos:
+
 while True:
     tok = lexer.token()
     if not tok: 
